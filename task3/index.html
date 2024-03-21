@@ -1,0 +1,25 @@
+<!-- ДЗ 31. Розкласти п'ятизначне число
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // П'ятизначне число
+        const number = 10369;
+
+        // Перетворення числа у рядок
+        const numberString = number.toString();
+
+        const result = `${numberString.slice(0, 1)} ${numberString.slice(1, 2)} ${numberString.slice(2, 3)} ${numberString.slice(3, 4)} ${numberString.slice(4, 5)} ${numberString.slice(5, 6)}`
+        console.log(result);
+    </script>
+</body>
+
+</html>
