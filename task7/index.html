@@ -1,0 +1,82 @@
+<!-- ДЗ 4.3. Портрет користувача -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Запитуємо у користувача рік народження
+        let birthYear = prompt("Введіть рік вашого народження:");
+        // Перевіряємо, чи користувач натиснув "Скасувати"
+        if (birthYear === null) {
+            alert("Шкода, що Ви не захотіли ввести свій рік народження.");
+        } else {
+            // Запитуємо у користувача місто проживання
+            let city = prompt("Введіть місто, де ви живете:");
+            // Перевіряємо, чи користувач натиснув "Скасувати"
+            if (city === null) {
+                alert("Шкода, що Ви не захотіли ввести своє місто проживання.");
+            } else {
+                // Запитуємо у користувача улюблений вид спорту
+                let favoriteSport = prompt("Введіть ваш улюблений вид спорту (Футбол, Баскетбол або Тенніс):");
+                // Перевіряємо, чи користувач натиснув "Скасувати"
+                if (favoriteSport === null) {
+                    alert("Шкода, що Ви не захотіли ввести свій улюблений вид спорту.");
+                } else {
+                    // Визначаємо вік користувача
+                    let currentYear = 2024;
+                    let age = currentYear - birthYear;
+
+                    // Перевіряємо, чи місто є столицею
+                    let message;
+                    if (city.toLowerCase() === "київ" || city.toLowerCase() === "вашингтон" || city.toLowerCase() === "лондон") {
+                        message = `Ти живеш у столиці ${getCountryCapital(city)}.`;
+                    } else {
+                        message = `Ти живеш у місті ${city}.`;
+                    }
+
+                    // Перевіряємо, чи улюблений вид спорту є одним із тих, які ми визначили
+                    switch (favoriteSport.toLowerCase()) {
+                        case "футбол":
+                            message += `\nКруто! Хочеш стати Тарасом Степаненком?`;
+                            break;
+                        case "баскетбол":
+                            message += `\nКруто! Хочеш стати Яннісом Адетокунбо?`;
+                            break;
+                        case "тенніс":
+                            message += `\nКруто! Хочеш стати Рафаелем Надалем?`;
+                            break;
+                        default:
+                            message += `\nТи обрав невідомий вид спорту.`;
+                    }
+
+                    // Показуємо інформацію користувачу за допомогою алерту
+                    alert(`Твій вік: ${age} років\n${message}`);
+                }
+            }
+        }
+
+        // Функція для отримання країни, столицею якої є вказане місто
+        function getCountryCapital(city) {
+            switch (city.toLowerCase()) {
+                case "київ":
+                    return "України";
+                case "вашингтон":
+                    return "США";
+                case "лондон":
+                    return "Великої Британії";
+                default:
+                    return "невідомої країни";
+            }
+        }
+    </script>
+</body>
+
+</html>
