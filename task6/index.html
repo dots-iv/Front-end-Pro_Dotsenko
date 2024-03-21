@@ -1,0 +1,36 @@
+<!-- ДЗ 4.2. Перевірка числа -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Отримуємо число від користувача за допомогою prompt
+        let number = prompt("Будь ласка, введіть тризначне число:");
+
+        // Перевіряємо, чи введене значення складається з трьох цифр
+        if (number.length !== 3 || isNaN(number)) {
+            alert("Будь ласка, введіть правильне тризначне число.");
+        } else {
+            // Перевіряємо, чи всі цифри однакові
+            if (number[0] === number[1] && number[1] === number[2]) {
+                alert("Всі цифри однакові.");
+            } else {
+                alert("Всі цифри не однакові.");
+                // Перевіряємо, чи серед цифр є однакові
+                if (number[0] === number[1] || number[1] === number[2] || number[0] === number[2]) {
+                    alert("Серед цифр є однакові.");
+                } else {
+                    alert("Серед цифр немає однакових.");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
