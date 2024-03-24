@@ -1,0 +1,28 @@
+<!-- ДЗ 19. Пошук потрібних чисел -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const D = prompt('Введіть ціле число від 1 до 100');
+        const N = Number(D);
+        // Якщо введене не є числом 
+        if (isNaN(N)){
+            console.log('Помилка, введене значення не э числом')
+        } else {
+            for(let i = 1; i <= 100; i++){
+                if (i * i <= N){
+                    console.log(i);
+                }else {
+                    break
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

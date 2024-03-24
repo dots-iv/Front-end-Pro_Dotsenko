@@ -1,0 +1,40 @@
+<!-- ДЗ 20. Просте число чи ні -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+const D = prompt("Введіть ціле число:"); 
+
+
+const N = +D; 
+
+
+if (N <= 1 || isNaN(N)) { 
+    console.log("Число не є простим або некоректне введення");
+} else {
+    let isTrue = true; 
+
+
+    for (let i = 2; i < N; i++) {
+        if (N % i === 0) {
+            isTrue = false; 
+            break; 
+        }
+    }
+
+
+    if (isTrue) {
+        console.log("Число є простим");
+    } else {
+        console.log("Число не є простим");
+    }
+}
+    </script>
+</body>
+</html>
