@@ -1,0 +1,36 @@
+<!-- ДЗ 31. Написати функцію видалення масиву символів -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function removeCharsFromString(str, charsToRemove) {
+            let result = "";
+            for (let i = 0; i < str.length; i++) {
+                let char = str[i];
+                if (!charsToRemove.includes(char)) {
+                    result += char;
+                }
+            }
+            return result;
+        }
+
+        let userInput = prompt("Введіть рядок:");
+        let charsInput = prompt(
+            "Введіть символи, які потрібно видалити (без пробілів):"
+        );
+        let charsToRemove = charsInput.split("");
+
+        let result = removeCharsFromString(userInput, charsToRemove);
+        alert(result);
+    </script>
+</body>
+
+</html>
