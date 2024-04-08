@@ -1,0 +1,33 @@
+<!-- ДЗ 15. Функція з циклом -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function promptNumber() {
+            let input;
+            for (let i = 0; i < 10; i++) {
+                input = prompt(`Введіть число більше 100 (ітерація ${i + 1}):`);
+                if (input === null || isNaN(input)) {
+                    console.log("Введено нечислове значення або відміна. Останнє введене значення: " + input);
+                    return;
+                } else if (Number(input) > 100) {
+                    console.log("Введено число більше 100: " + input);
+                    return;
+                }
+            }
+            console.log("Досягнуто максимальну кількість ітерацій. Останнє введене значення: " + input);
+        }
+
+        promptNumber();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!-- ДЗ 13. Замикання -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function sum() {
+            let total = 0;
+            return function (x) {
+                total += x;
+                return total;
+            }
+        }
+
+        const sumFunction = sum();
+        console.log(sumFunction(4)); // 4
+        console.log(sumFunction(6)); // 10
+        console.log(sumFunction(10)); // 20
+        console.log(sumFunction(7)); // 27
+
+    </script>
+</body>
+
+</html>
