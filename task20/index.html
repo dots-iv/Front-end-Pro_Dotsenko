@@ -1,0 +1,70 @@
+<!-- ДЗ 17. Сумма зарплат -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script>
+        let company = {
+            sales: [{ name: 'John', salary: 1000 }, { name: 'Alice', salary: 700 }],
+            development: {
+                web: [{ name: 'Ivan', salary: 2000 }, { name: 'Stephan', salary: 1200 }],
+                internals: [{ name: 'Julia', salary: 1200 }]
+            }
+        };
+        function sumSalaries(department) {
+            let sum = 0;
+
+            if (Array.isArray(department)) { 
+                for (let person of department) {
+                    sum += person.salary;
+                }
+            } else { 
+                for (let subDept of Object.values(department)) {
+                    sum += sumSalaries(subDept); 
+                }
+            }
+
+            return sum;
+        }
+
+        let totalSalary = sumSalaries(company);
+        console.log(totalSalary); 
+    </script> -->
+    <script>
+
+        let company = {
+            sales: [{ name: 'John', salary: 1000 }, { name: 'Alice', salary: 700 }],
+            development: {
+                web: [],
+                internals: [{ name: 'Julia', salary: 1200 }],
+                teamLeads: [{ name: 'Igor', salary: 12200 }]
+            }
+        };
+        function sumSalaries(department) {
+            let sum = 0;
+
+            if (Array.isArray(department)) {
+                for (let person of department) {
+                    sum += person.salary;
+                }
+            } else {
+                for (let subDept of Object.values(department)) {
+                    sum += sumSalaries(subDept);
+                }
+            }
+
+            return sum;
+        }
+
+        let totalSalary = sumSalaries(company);
+        console.log(totalSalary); 
+    </script>
+</body>
+
+</html>
