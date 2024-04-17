@@ -1,0 +1,33 @@
+<!-- ДЗ 34. Картка користувача -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let user = {
+            name: "Іван",
+            age: 22,
+            location: "Дніпро",
+            // Метод для відображення інформації про користувача
+            displayInfo: function () {
+                console.log("Ім'я: " + this.name);
+                console.log("Вік: " + this.age);
+                console.log("Місце проживання: " + this.location);
+            }
+        };
+
+        // Виклик методу для відображення інформації про користувача
+        user.displayInfo();
+
+
+    </script>
+</body>
+
+</html>

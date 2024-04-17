@@ -1,0 +1,24 @@
+<!-- ДЗ 36. Отримання парних чисел з масиву -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let originalArray = [0, 2, 4, 1, 3, 6, 8, 124, 324, 222, 123210];
+
+        let newArray = originalArray.filter(function (num) {
+            return num % 2 === 0;
+        });
+
+        console.log(newArray);
+
+    </script>
+</body>
+
+</html>

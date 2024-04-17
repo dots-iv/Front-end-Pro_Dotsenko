@@ -1,0 +1,55 @@
+<!-- ДЗ 35. Книга контактів -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let contactBook = {
+
+            contacts: [],
+
+            addContact: function (name, phoneNumber, email) {
+                this.contacts.push({ name: name, phoneNumber: phoneNumber, email: email });
+            },
+
+            searchContactByName: function (name) {
+                for (let contact of this.contacts) {
+                    if (contact.name === name) {
+                        return contact;
+                    }
+                }
+                return ('Контакт не знайдено')
+            }
+        };
+
+
+        // Додавання контактів
+
+        contactBook.addContact("Самуэль", "+380988881102", "blabla@gmail.com");
+        contactBook.addContact("Кріштіану", "+380914581102", "blabla1@gmail.com");
+        contactBook.addContact("Ліонель", "+380981881202", "blabla2@gmail.com");
+
+        // Пошук контакту
+        let foundContact = contactBook.searchContactByName("Самуэль");
+        console.log(foundContact);
+
+
+        // Новий контакт 
+        contactBook.addContact("Маргарита", "+444555666", "margoshka@gmail.com");
+
+
+
+        // Пошук контакту за ім'ям після додавання 
+
+        foundContact = contactBook.searchContactByName("Маргарита");
+        console.log(foundContact);
+    </script>
+</body>
+
+</html>
