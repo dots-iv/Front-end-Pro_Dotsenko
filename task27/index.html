@@ -1,0 +1,33 @@
+<!-- ДЗ 18. Переход на сторінку -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="inputBtn">Введіть посилання</button>
+    <button id="redirectBtn">Перейти за посиланням</button>
+    <script>
+        'use strict';
+    
+        document.getElementById("inputBtn").addEventListener("click", () => {
+            const link = prompt("Введіть посилання:");
+            if (link !== null && link !== "") {
+                localStorage.setItem("redirectLink", link);
+            }
+        });
+    
+        document.getElementById("redirectBtn").addEventListener("click", () => {
+            const redirectLink = localStorage.getItem("redirectLink");
+            if (redirectLink) {
+                window.location.href = redirectLink;
+            } else {
+                alert("Посилання не знайдено. Спочатку введіть посилання.");
+            }
+        });
+    </script>
+    
+</body>
+</html>

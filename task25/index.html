@@ -1,0 +1,40 @@
+<!-- ДЗ 29. Кнопка зміни кольору -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="textBlock">Текст, який буде змінювати колір</div>
+    <button onclick="changeColor()">Змінити колір</button>
+    <script>
+        'use strict'
+
+        let colors = ["red", "green", "blue", "orange", "purple"]; 
+        let defaultColor = "black";
+
+        function getRandomColor() {
+            return colors[Math.floor(Math.random() * colors.length)]; 
+        }
+
+        function changeColor() {
+            let textBlock = document.getElementById("textBlock");
+            let currentColor = textBlock.style.color;
+
+            
+            if (!currentColor || currentColor === defaultColor) {
+                textBlock.style.color = getRandomColor();
+            } else {
+                textBlock.style.color = defaultColor; 
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

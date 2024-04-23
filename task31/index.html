@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            color: #555;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #888;
+            font-size: 0.8em;
+            margin-bottom: 5px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .invalid-description {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Форма зворотного зв'язку</h2>
+        <form id="contactForm">
+            <div>
+                <label for="name">Ім'я:</label><br>
+                <input type="text" id="name" name="name">
+                <div class="description">Обов'язкове текстове поле (тільки букви)</div>
+                <span id="nameError" class="error"></span>
+            </div>
+            <br>
+            <div>
+                <label for="message">Повідомлення:</label><br>
+                <textarea id="message" name="message" rows="4" cols="50"></textarea>
+                <div class="description">Текстове поле не менше 5 символів</div>
+                <span id="messageError" class="error"></span>
+            </div>
+            <br>
+            <div>
+                <label for="phone">Телефон:</label><br>
+                <input type="tel" id="phone" name="phone" pattern="\+380[0-9]{9}">
+                <div class="description">Обов'язкове поле типу телефон. З початком на +380</div>
+                <span id="phoneError" class="error"></span>
+            </div>
+            <br>
+            <div>
+                <label for="email">Електронна пошта:</label><br>
+                <input type="email" id="email" name="email">
+                <div class="description">Електронна пошта обов'язково повинна мати @ та крапку</div>
+                <span id="emailError" class="error"></span>
+            </div>
+            <br>
+            <button type="submit">Надіслати</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const inputs = document.querySelectorAll('input, textarea');
+
+            inputs.forEach(input => {
+                input.addEventListener('focusout', function() {
+                    const description = this.parentElement.querySelector('.description');
+                    const error = this.parentElement.querySelector('.error');
+
+                    if (this.value.trim() === '') {
+                        description.classList.remove('invalid-description');
+                        error.textContent = '';
+                        return;
+                    }
+
+                    switch (this.getAttribute('name')) {
+                        case 'name':
+                            const nameRegex = /^[a-zA-Zа-яА-ЯїЇіІєЄґҐ\s]*$/;
+                            if (!this.value.match(nameRegex)) {
+                                description.classList.add('invalid-description');
+                                error.textContent = 'Ім\'я повинно містити лише букви';
+                            } else {
+                                description.classList.remove('invalid-description');
+                                error.textContent = '';
+                            }
+                            break;
+                        case 'message':
+                            if (this.value.length < 5) {
+                                description.classList.add('invalid-description');
+                                error.textContent = 'Повідомлення повинно містити щонайменше 5 символів';
+                            } else {
+                                description.classList.remove('invalid-description');
+                                error.textContent = '';
+                            }
+                            break;
+                        case 'phone':
+                            const phoneRegex = /^\+380[0-9]{9}$/;
+                            if (!this.value.match(phoneRegex)) {
+                                description.classList.add('invalid-description');
+                                error.textContent = 'Будь ласка, введіть правильний номер телефону, починаючи з +380';
+                            } else {
+                                description.classList.remove('invalid-description');
+                                error.textContent = '';
+                            }
+                            break;
+                        case 'email':
+                            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                            if (!this.value.match(emailRegex)) {
+                                description.classList.add('invalid-description');
+                                error.textContent = 'Будь ласка, введіть правильну електронну адресу';
+                            } else {
+                                description.classList.remove('invalid-description');
+                                error.textContent = '';
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                });
+            });
+
+            document.getElementById("contactForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+                const name = document.getElementById("name").value;
+                const message = document.getElementById("message").value;
+                const phone = document.getElementById("phone").value;
+                const email = document.getElementById("email").value;
+
+                console.log("Ім'я:", name);
+                console.log("Повідомлення:", message);
+                console.log("Телефон:", phone);
+                console.log("Електронна пошта:", email);
+            });
+        });
+    </script>
+</body>
+</html>

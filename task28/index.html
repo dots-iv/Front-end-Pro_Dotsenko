@@ -1,0 +1,35 @@
+<!-- ДЗ 19. Використання подій -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="buttons-container">
+        <button id="button1">КНОПКА 1</button>
+        <button id="button2">КНОПКА 2</button>
+        <button id="button3">КНОПКА 3</button>
+    </div>
+    <script>
+        'use strict'
+        const buttonsContainer = document.getElementById("buttons-container");
+
+        buttonsContainer.addEventListener("click", (event) => {
+
+            if (event.target.tagName === "BUTTON") {
+
+                const buttonId = event.target.id;
+
+                const buttonText = event.target.innerText;
+
+                alert(`Клікнуто на кнопці з ID: ${buttonId}, з текстом: ${buttonText}`);
+            }
+        });
+    </script>
+</body>
+
+</html>

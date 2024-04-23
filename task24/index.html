@@ -1,0 +1,50 @@
+<!-- ДЗ 28. Таблиця піфагора
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+    
+        function createPifagorTable(n) {
+            let table = [];
+            for (let i = 1; i <= n; i++) {
+                let row = [];
+                for (let j = 1; j <= n; j++) {
+                    row.push(i * j);
+                }
+                table.push(row);
+            }
+            return table;
+        }
+    
+        function printTable(table) {
+            for (let i = 0; i < table.length; i++) {
+                let row = '';
+                for (let j = 0; j < table[i].length; j++) {
+                    row += table[i][j] + '\t';
+                }
+                console.log(row);
+            }
+        }
+    
+        function generatePifagorTable() {
+            let tableSize = parseInt(prompt("Введіть розмір таблиці:"));
+            if (!isNaN(tableSize)) {
+                let pifagorTable = createPifagorTable(tableSize);
+                printTable(pifagorTable);
+            } else {
+                console.log("Введено неправильне значення.");
+            }
+        }
+    
+        generatePifagorTable();
+    </script>
+    
+</body>
+</html>
