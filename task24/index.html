@@ -1,16 +1,35 @@
-<!-- ДЗ 28. Таблиця піфагора
- -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Таблиця Піфагора</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
+    <div>
+        <label for="tableSize">Розмір таблиці:</label>
+        <input type="number" id="tableSize" min="1" max="20" value="10">
+        <button onclick="generatePifagorTable()">Побудувати таблицю</button>
+    </div>
+    <div id="tableContainer"></div>
+
     <script>
         'use strict';
-    
+
         function createPifagorTable(n) {
             let table = [];
             for (let i = 1; i <= n; i++) {
@@ -22,29 +41,34 @@
             }
             return table;
         }
-    
+
         function printTable(table) {
+            let tableHTML = '<table>';
             for (let i = 0; i < table.length; i++) {
-                let row = '';
+                tableHTML += '<tr>';
                 for (let j = 0; j < table[i].length; j++) {
-                    row += table[i][j] + '\t';
+                    tableHTML += '<td>' + table[i][j] + '</td>';
                 }
-                console.log(row);
+                tableHTML += '</tr>';
             }
+            tableHTML += '</table>';
+            return tableHTML;
         }
-    
+
         function generatePifagorTable() {
-            let tableSize = parseInt(prompt("Введіть розмір таблиці:"));
+            let tableSize = parseInt(document.getElementById("tableSize").value);
+            let tableContainer = document.getElementById("tableContainer");
+
             if (!isNaN(tableSize)) {
                 let pifagorTable = createPifagorTable(tableSize);
-                printTable(pifagorTable);
+                tableContainer.innerHTML = printTable(pifagorTable);
             } else {
-                console.log("Введено неправильне значення.");
+                tableContainer.innerHTML = "<p>Введено неправильне значення.</p>";
             }
         }
-    
+
         generatePifagorTable();
     </script>
-    
 </body>
+
 </html>
